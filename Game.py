@@ -51,12 +51,8 @@ class Game:
             if Game.turn == Game.player:
 
                 time.sleep(2)
-
                 #FaceDetection here
-                action = Game.requestAction() #request move player
-
-                
-                
+                Game.requestAction() #request move player            
 
             else: #enemy's turn
                 while(True):
@@ -69,8 +65,6 @@ class Game:
                 if Game.turn.position == Game.player.position:
                     Game.player.health+= Game.enemy.attack()
 
-                    
-
             if Game.verifyWinner():
                 print("🔥🔥🔥🔥🔥🔥🔥🔥🔥")
                 Game.printInfoGame()
@@ -79,7 +73,6 @@ class Game:
                 break
             
             Game.switchTurn()
-
 
     @staticmethod
     def requestAction():
@@ -140,6 +133,7 @@ class Game:
                         
 
                     else:
+                        print("No hay Items en tu posicion actual")
                         valid = False
                 else:
                     print("No hay Items en tu posicion actual")
@@ -159,11 +153,6 @@ class Game:
             
             FaceDetection.playerAction = None
         Game.clearConsole()
-
-
-
-
-
 
 
     @staticmethod
@@ -327,6 +316,7 @@ class Game:
         while True:
             FaceDetection.detect(Game.cam)
             if FaceDetection.playerAction == "eyebrows":
+                FaceDetection.playerAction = None
                 return True
 
             elif FaceDetection.playerAction == "down":

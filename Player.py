@@ -25,7 +25,7 @@ class Player(Character):
 
         #FaceDetection
         #indexWeapon = int(input("Selecciona un arma: "))
-        print("Cuando tengas seleccionada el arma, mira hacia la arriba")
+        print("Cuando tengas seleccionada el arma, mira hacia arriba")
         indexWeapon = self.chooseIndexOption(cam,self.inventory["Weapons"])
 
         chosenWeapon = self.inventory["Weapons"][indexWeapon]
@@ -36,7 +36,7 @@ class Player(Character):
 
     def chooseIndexOption(self,cam,collection,action ="up"):
         index = 0
-        print("Parpadea o sonrie para cambiar de arma:")
+        print("Parpadea o sonrie para cambiar de opcion:")
         print("Indice actual:  ",index)
         print("Estas en la posicion de: ",collection[index] )
         #parpadear para sumar, sonreir para restar
@@ -61,7 +61,7 @@ class Player(Character):
             print("Indice actual:  ",index)
             print("Estas en la posicion de: ",collection[index] )
         
-        print("Escogiste por ahora: ",collection[index])
+        print("Escogiste: ",collection[index])
         FaceDetection.playerAction = None
         time.sleep(2)
         return index

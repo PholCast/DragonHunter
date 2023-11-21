@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 @dataclass
-class GameElement:
+class GameElement: # Character and GameItem
     name: str
     icon: str
 
